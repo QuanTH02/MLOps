@@ -1,0 +1,19 @@
+project-mlops/
+├── app.py                  # File chính để chạy ứng dụng
+├── requirements.txt        # Danh sách thư viện
+├── Dockerfile              # Cấu hình Docker (nếu cần)
+├── data/                   # Chứa dữ liệu thô hoặc đã xử lý
+│   ├── raw/
+│   └── processed/
+├── notebooks/              # Các notebook thử nghiệm
+├── src/                    # Source code chính
+│   ├── __init__.py
+│   ├── data/               # Tiền xử lý dữ liệu
+│   ├── models/             # Huấn luyện và lưu mô hình
+│   ├── pipelines/          # Định nghĩa pipeline
+│   └── utils/              # Hàm tiện ích
+├── .github/                
+│   └── workflows/          # CI/CD cho GitHub Actions
+│       └── ci.yml          # Workflow chính
+├── .huggingface.yml        # Cấu hình riêng cho Hugging Face Spaces (tùy chọn)
+└── README.md               # Mô tả dự án
