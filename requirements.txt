@@ -1,0 +1,9 @@
+transformers
+torch
+scikit-learn
+pandas
+numpy
+flask
+gradio
+pytest
+huggingface_hub

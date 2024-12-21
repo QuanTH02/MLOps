@@ -1,0 +1,45 @@
+name: CI/CD Pipeline for Emotion Recognition
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run tests
+      run: |
+        pytest --maxfail=1 --disable-warnings -q
+
+    - name: Train model
+      run: |
+        python src/models/train_model.py
+
+    - name: Upload trained model to Hugging Face (optional)
+      run: |
+        huggingface-cli login ${{ secrets.HUGGINGFACE_TOKEN }}
+        python src/models/upload_model.py
+
+    - name: Deploy to Hugging Face Space or other platform (optional)
+      run: |
+        # Deploy logic, e.g., push model to Hugging Face Spaces
+        # python deploy.py
