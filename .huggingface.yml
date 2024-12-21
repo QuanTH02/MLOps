@@ -1,0 +1,8 @@
+sdk: gradio
+app_file: app.py
+python_version: "3.9"
+requirements:
+  - pandas
+  - numpy
+  - scikit-learn
+  - gradio
