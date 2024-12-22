@@ -8,6 +8,7 @@ project-mlops/
 ├── notebooks/              # Các notebook thử nghiệm
 ├── src/                    # Source code chính
 │   ├── __init__.py
+|   ├── app/                # Nơi để chạy app
 │   ├── data/               # Tiền xử lý dữ liệu
 │   ├── models/             # Huấn luyện và lưu mô hình
 │   ├── pipelines/          # Định nghĩa pipeline
