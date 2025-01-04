@@ -1,15 +1,11 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from constants.constant import DELTA
 
 from datetime import datetime, timedelta
 import csv
 import time
-
-
-DELTA = 5
-
-
 
 # === UTILS FUNCTION ===
 
@@ -102,8 +98,7 @@ def clean_imdb_id_string(imdb_id_str):
 def clean_genres_string(genres_str):
     return genres_str.split(' ')
 
-
-def write_to_csv(movie_data_list, filename='./merge_data/movies_data.csv'):
+def write_to_csv(movie_data_list, filename):
     # Define the fieldnames for the CSV file
     fieldnames = ['tt_id', 'movie_name', 'domestic_box_office', 'budget', 'month', 'year', 'opening_week', 'screens', 'genres', 'mpaa', 'runtime']
     
@@ -149,6 +144,8 @@ def crawl_movies_list_data():
     movies_list_len = driver.find_element(By.XPATH, '//*[@id="table"]/div/table[2]/tbody/tr[last()]/td[1]').text
     movies_list_len = int(movies_list_len)
     for i in range (2, movies_list_len + 2):
+        if i > 20:
+            break
         movie_url_href = driver.find_element(By.XPATH, f'//*[@id="table"]/div/table[2]/tbody/tr[{i}]/td[2]/a').get_attribute('href')
         result_list.append(movie_url_href)
         
@@ -215,7 +212,7 @@ def crawl_movie_data(url):
     return movie
 
 
-def main_mojo():
+def main_mojo(filename):
     month, year = delta_months_before(DELTA)
     print(f'Start updater from boxofficemojo.com in {month} ,{year}')
 
@@ -252,14 +249,14 @@ def main_mojo():
 
         movie_data_end = time.time()
         movie_data_time_cost = movie_data_end - movie_data_start
-        print(f"    MOVIE DATA (Cost: {YELLOW_TEXT}{movie_data_time_cost:.2f}s{RESET_TEXT}) Title: {movie_data['movie_name']}")
+        print(f"MOVIE DATA (Cost: {YELLOW_TEXT}{movie_data_time_cost:.2f}s{RESET_TEXT}) Title: {movie_data['movie_name']}")
 
     movies_list_data_time_end = time.time()
     movies_list_data_time_cost = movies_list_data_time_end - movies_list_data_time_start
     movies_list_data_time_average = movies_list_data_time_cost / len(movies_url_list)
     print(f"{GREEN_BG_BLACK_TEXT_BOLD}CRAWL MOVIE DATA{RESET} Total time cost: {YELLOW_TEXT}{movies_list_data_time_cost:.2f}s{RESET_TEXT}, average time cost: {YELLOW_TEXT}{movies_list_data_time_average:.2f}s{RESET_TEXT}")
 
-    write_to_csv(movie_data_list)
+    write_to_csv(movie_data_list, filename)
     end_time = time.time()
     time_cost = end_time - start_time
     print(f"\nTotal time cost : {GREEN_TEXT}{time_cost:.2f}s{RESET_TEXT}")

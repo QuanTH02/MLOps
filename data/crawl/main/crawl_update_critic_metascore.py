@@ -8,6 +8,7 @@ def score(critic_vote_metacritic, meta_score_metacritic, critic_vote_rotten, met
     # print("Critic vote rotten:", critic_vote_rotten)
     # print("Meta score rotten:", meta_score_rotten)
 
+
     metacritic_sum = critic_vote_metacritic*meta_score_metacritic
     rotten_sum = critic_vote_rotten*meta_score_rotten
 
@@ -15,10 +16,9 @@ def score(critic_vote_metacritic, meta_score_metacritic, critic_vote_rotten, met
 
     return critic_vote_sum, "{:.2f}".format((metacritic_sum+rotten_sum)/critic_vote_sum)
 
-def main_critic_metascore():
+def main_critic_metascore(path_file):
     print('====================================================================================')
     print("Crawling critic and metascore...")
-    path_file = './merge_data/movies_data.csv'
     df = pd.read_csv(path_file)
     movie_name_list = df["movie_name"].tolist()
     month_list = df["month"].tolist()
@@ -76,11 +76,11 @@ def main_critic_metascore():
 
             # print("--------------------------------------------")
 
-            if critic_vote_metacritic and critic_vote_rotten:
+            if critic_vote_metacritic and critic_vote_rotten and meta_score_metacritic and meta_score_rotten:
                 critic_vote, meta_score = score(int(critic_vote_metacritic), int(meta_score_metacritic), int(critic_vote_rotten), int(meta_score_rotten))
-            elif critic_vote_metacritic:
+            elif critic_vote_metacritic and meta_score_metacritic:
                 critic_vote, meta_score = score(int(critic_vote_metacritic), int(meta_score_metacritic), 0, 0)
-            elif critic_vote_rotten:
+            elif critic_vote_rotten and meta_score_rotten:
                 critic_vote, meta_score = score(0, 0, int(critic_vote_rotten), int(meta_score_rotten))
             else:
                 critic_vote, meta_score = 0, 0

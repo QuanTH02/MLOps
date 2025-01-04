@@ -42,6 +42,8 @@ def page_search_rottentomatoes(soup, movie_title, year_release):
 
             response = requests.get(url, headers=headers)
 
+            # print(url)
+
             if response.status_code == 200:
                 soup_cv = BeautifulSoup(response.text, "html.parser")
                 critic_vote, meta_score = crawl_rottentomatoes(soup_cv)
@@ -76,7 +78,8 @@ def crawl_rottentomatoes(soup):
     div_score_element = soup.find("div", {"class": "media-scorecard"})
 
     critic_vote = div_score_element.find("rt-link", {"slot": "criticsReviews"}).text.strip()
-    meta_score = div_score_element.find("rt-button", {"slot": "criticsScore"}).text.strip().replace("%", "")
+    # print(critic_vote)
+    meta_score = div_score_element.find("rt-text", {"slot": "criticsScore"}).text.strip().replace("%", "")
     
     # print("Critic vote:", string_to_num(critic_vote))
     # print("Meta score:", string_to_num(meta_score))

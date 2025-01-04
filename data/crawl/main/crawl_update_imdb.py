@@ -41,10 +41,10 @@ def crawl_imdb_request(soup):
     if user_vote_and_rating_element:
 
         # ratings
-        rate = user_vote_and_rating_element.find("div", {"class": "sc-bde20123-2 cdQqzc"}).text.split("/")[0].strip()
+        rate = user_vote_and_rating_element.find("div", {"class": "sc-d541859f-2 kxphVf"}).text.split("/")[0].strip()
 
         # user_vote
-        vote = user_vote_and_rating_element.find("div", {"class": "sc-bde20123-3 gPVQxL"}).text.replace("K", "000").replace("M", "000000").replace(".", "")
+        vote = user_vote_and_rating_element.find("div", {"class": "sc-d541859f-3 dwhNqC"}).text.replace("K", "000").replace("M", "000000").replace(".", "")
 
         ratings.append(rate)
         user_vote.append(vote)
@@ -173,7 +173,7 @@ def search_imdb(movie_name, year_release):
     else:
         print("Failed to fetch data:", response.status_code)
 
-def main_imdb():
+def main_imdb(path_file):
     print('====================================================================================')
     print("Crawl IMDB...")
     global ratings
@@ -190,7 +190,6 @@ def main_imdb():
     global check_search_imdb_requests
     check_search_imdb_requests = False
     
-    path_file = './merge_data/movies_data.csv'
     df = pd.read_csv(path_file)
     url_title_list = df["tt_id"].tolist()
     movie_name_list = df["movie_name"].tolist()
@@ -225,6 +224,8 @@ def main_imdb():
         else:
             url = "https://www.imdb.com/title/" + url_title_list[movie_name_list.index(movie_name)] + "/"
             response = requests.get(url, headers=headers)
+
+            # print(url)
 
             if response.status_code == 200:
                 soup = BeautifulSoup(response.content, 'html.parser')
