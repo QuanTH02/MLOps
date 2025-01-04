@@ -1,13 +1,10 @@
-import sys
-sys.path.append(r'C:\Code\Project_MLops\data\crawl')
-
 from dotenv import load_dotenv
 from crawl_update_mojo import *
 from crawl_update_tmdb import *
 from crawl_update_imdb import *
 from crawl_update_critic_metascore import *
 from crawl_update_themoviedb import *
-from constants.constant import DATA_FILE_NAME
+from constant import DATA_FILE_NAME
 
 load_dotenv()
 

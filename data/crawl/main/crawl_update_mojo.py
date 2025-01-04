@@ -1,14 +1,13 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-from constants.constant import DELTA
+from constant import DELTA
 
 from datetime import datetime, timedelta
 import csv
 import time
 
 # === UTILS FUNCTION ===
-
 
 def month_name_to_number(month_name):
     # Dictionary mapping month names to their corresponding numbers
