@@ -25,18 +25,33 @@
 
 ### Cấu trúc thư mục
 project-mlops/
+
 ├── requirements.txt        # Danh sách thư viện
+
 ├── data/                   # Chứa dữ liệu thô hoặc đã xử lý
+
 │   ├── crawl/              # Thư mục crawl data
+
 │   ├── raw/
+
 │   └── processed/
+
 ├── src/                    # Source code chính
+
 │   ├── __init__.py
+
 |   ├── app/                # Nơi để chạy app
+
     ├── constant/           # Chứa các biến không thay đổi
+
 │   ├── data/               # Tiền xử lý dữ liệu
+
 │   └── models/             # Huấn luyện và lưu mô hình
+
 ├── .github/                
+
 │   └── workflows/          # CI/CD cho GitHub Actions
+
 │       └── update.yml          # Workflow chính
+
 └── README.md               # Mô tả dự án
