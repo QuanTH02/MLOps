@@ -143,7 +143,7 @@ def crawl_movies_list_data():
     movies_list_len = driver.find_element(By.XPATH, '//*[@id="table"]/div/table[2]/tbody/tr[last()]/td[1]').text
     movies_list_len = int(movies_list_len)
     for i in range (2, movies_list_len + 2):
-        if i > 5:
+        if i > 2:
             break
         movie_url_href = driver.find_element(By.XPATH, f'//*[@id="table"]/div/table[2]/tbody/tr[{i}]/td[2]/a').get_attribute('href')
         result_list.append(movie_url_href)
