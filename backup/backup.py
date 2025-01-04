@@ -15,39 +15,31 @@ def backup_latest_version(
     :param local_data_path: Đường dẫn file dữ liệu cục bộ hiện tại
     :param local_model_path: Đường dẫn thư mục mô hình cục bộ hiện tại
     """
-    # Lấy danh sách các thư mục trong data_version và tìm thư mục phiên bản mới nhất
+
     version_folders = [
         name
         for name in os.listdir(local_root)
         if os.path.isdir(os.path.join(local_root, name))
     ]
 
-    # Nếu không có thư mục nào, thông báo và kết thúc
     if not version_folders:
         print("Không có phiên bản nào trong thư mục data_version.")
         return
 
-    # Sắp xếp các thư mục theo tên (theo định dạng version_1, version_2, ...)
-    version_folders.sort(
-        key=lambda x: int(x.split("_")[1])
-    )  # Giả sử tên thư mục có định dạng version_X
+    version_folders.sort(key=lambda x: int(x.split("_")[1]))
     latest_version_folder = version_folders[-1]
 
-    # Đường dẫn tới các file và thư mục trong phiên bản mới nhất
     latest_version_path = os.path.join(local_root, latest_version_folder)
     latest_data_path = os.path.join(latest_version_path, "final_data.csv")
     latest_model_path = os.path.join(latest_version_path, "models")
 
-    # Sao chép file dữ liệu CSV vào vị trí hiện tại
     if os.path.exists(latest_data_path):
         shutil.copy(latest_data_path, local_data_path)
         print(f"Đã sao chép dữ liệu từ {latest_data_path} vào {local_data_path}")
     else:
         print(f"Không tìm thấy file {latest_data_path}")
 
-    # Sao chép mô hình vào vị trí hiện tại
     if os.path.exists(latest_model_path) and os.path.isdir(latest_model_path):
-        # Xóa thư mục mô hình hiện tại nếu có và sao chép mô hình mới
         if os.path.exists(local_model_path):
             shutil.rmtree(local_model_path)
         shutil.copytree(latest_model_path, local_model_path)

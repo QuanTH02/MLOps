@@ -1,9 +1,8 @@
 name: Update data and Update model
 
 on:
-  # schedule:
-  #   - cron: '0 0 * * *' # This cron expression runs the job daily
-  # workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *' # This cron expression runs the job daily
   push:
     branches:
       - main
@@ -81,6 +80,12 @@ jobs:
           python update_model.py
           cd ../..
           cp ./data/processed/final_merged.csv ./src/app/static/
+
+      - name: Run save_data
+        run: |
+          cd ./backup
+          python save_data.py
+          cd ..
       
       - name: Commit and push the .pkl file
         env: 
@@ -92,7 +97,7 @@ jobs:
           git commit -m 'Update .pkl files in model_efa directory'
           git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/QuanTH02/MLOps.git main
         continue-on-error: true
-  
+
   # pull_main:
   #   runs-on: [self-hosted, quan_win]
   #   needs: [crawl, update_model]
