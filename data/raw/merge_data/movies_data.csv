@@ -1,13 +1,4 @@
 movie_name,domestic_box_office,budget,month,year,opening_week,screens,genres,mpaa,runtime,user_vote,ratings,country,critic_vote,meta_score,sequel
-It Ends with Us,148518266,25000000.0,8,2024,50016652,3611,Drama Romance,PG-13,130.0,64000.0,6.4,United States,42.0,53.0,0.0
-Alien: Romulus,105313091,80000000.0,8,2024,42003361,3885,Horror Sci-Fi Thriller,R,119.0,200000.0,7.1,United Kingdom United States Hungary Australia New Zealand Canada,447.0,77.09,1.0
-Trap,42777281,30000000.0,8,2024,15454146,3181,Crime Horror Mystery Thriller,PG-13,105.0,118000.0,5.9,United States Canada,285.0,56.19,0.0
-Reagan,30047417,25000000.0,8,2024,7650720,2754,Biography Drama History,PG-13,141.0,95000.0,6.2,United States,88.0,18.91,0.0
-The Forge,29123632,5000000.0,8,2024,6659508,1818,Drama Family,PG,124.0,36000.0,6.6,United States,15.0,67.0,0.0
-Blink Twice,23093906,20000000.0,8,2024,7301894,3067,Mystery Thriller,R,102.0,68000.0,6.5,Mexico United States,266.0,73.48,0.0
-Harold and the Purple Crayon,17640924,40000000.0,8,2024,6003197,3325,Adventure Animation Comedy Family Fantasy,PG,90.0,67000.0,5.7,United States,95.0,29.45,0.0
-Borderlands,15482668,115000000.0,8,2024,8601572,3125,Action Adventure Comedy Sci-Fi Thriller,PG-13,101.0,37000.0,4.6,United States Hungary,201.0,12.87,0.0
-The Crow,9275659,50000000.0,8,2024,4644666,2752,Action Crime Fantasy Horror Romance Thriller,R,111.0,28000.0,4.7,United States United Kingdom France Czech Republic Germany,165.0,23.5,0.0
-Afraid,6725687,12000000.0,8,2024,3665664,3003,Horror Mystery Sci-Fi Thriller,PG-13,84.0,11000.0,5.2,United States United Kingdom,15.0,28.0,0.0
-Cuckoo,6217733,7000000.0,8,2024,3030437,1503,Horror Mystery Thriller,R,102.0,20000.0,5.8,Germany United States,224.0,75.29,0.0
-Strange Darling,3083595,4000000.0,8,2024,1142928,1135,Horror Thriller,R,97.0,37000.0,7.1,United States,22.0,43.0,0.0
+It Ends with Us,148518266,25000000.0,8,2024,50016652,3611,Drama Romance,PG-13,130,64000.0,6.4,United States,42.0,53.0,0.0
+Alien: Romulus,105313091,80000000.0,8,2024,42003361,3885,Horror Sci-Fi Thriller,R,119,200000.0,7.1,United Kingdom United States Hungary Australia New Zealand Canada,447.0,77.09,1.0
+Trap,42777281,30000000.0,8,2024,15454146,3181,Crime Horror Mystery Thriller,PG-13,105,118000.0,5.9,United States Canada,285.0,56.19,0.0

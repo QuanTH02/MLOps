@@ -28,7 +28,7 @@ def crawl_budget(tt_id):
         response = requests.get(url_budget, headers=headers_budget, params=params)
         data = response.json()
 
-        print('budget: ', data['budget'])
+        # print('budget: ', data['budget'])
 
         if data['budget']:
             return data['budget']
