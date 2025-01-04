@@ -114,3 +114,289 @@ Standard deviation of RMSE: 0.04311107691929093
 ----------------------------------------------------------------
 
 
+Best model: Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('num', StandardScaler(),
+                                                  ['mpaa', 'budget', 'runtime',
+                                                   'screens', 'opening_week',
+                                                   'critic_vote', 'Factor1',
+                                                   'Factor2'])])),
+                ('regressor',
+                 RandomForestRegressor(max_depth=10, min_samples_split=10,
+                                       n_estimators=150, random_state=42))])
+Best parameters: {'regressor__max_depth': 10, 'regressor__min_samples_split': 10, 'regressor__n_estimators': 150}
+Best score: 0.25824178458688557
+Mean Squared Error (MSE): 1247395335073861.5
+Root Mean Squared Error (RMSE): 35318484.32582946
+Mean Absolute Error (MAE): 15130193.34758104
+R^2 Score: 0.8322562936716931
+Cross-validated RMSE scores: [0.51568387 0.43440821 0.56068398 0.44339155 0.48212545]
+Mean RMSE: 0.48725861226601824
+Standard deviation of RMSE: 0.046782718000935836
+----------------------------------------------------------------
+
+
+Best model: Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('num', StandardScaler(),
+                                                  ['mpaa', 'budget', 'runtime',
+                                                   'screens', 'opening_week',
+                                                   'critic_vote', 'Factor1',
+                                                   'Factor2'])])),
+                ('regressor',
+                 GradientBoostingRegressor(n_estimators=150, random_state=42))])
+Best parameters: {'regressor__learning_rate': 0.1, 'regressor__max_depth': 3, 'regressor__n_estimators': 150}
+Best score: 0.2522202025443637
+Mean Squared Error (MSE): 1397783428845012.2
+Root Mean Squared Error (RMSE): 37386941.95631694
+Mean Absolute Error (MAE): 15703662.451883962
+R^2 Score: 0.8120328284016967
+Cross-validated RMSE scores: [0.51433797 0.48252903 0.54930214 0.46920143 0.47166233]
+Mean RMSE: 0.49740657948909517
+Standard deviation of RMSE: 0.030526905783566028
+----------------------------------------------------------------
+
+
+Best model: Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('num', StandardScaler(),
+                                                  ['mpaa', 'budget', 'runtime',
+                                                   'screens', 'opening_week',
+                                                   'critic_vote', 'Factor1',
+                                                   'Factor2'])])),
+                ('regressor',
+                 RandomForestRegressor(max_depth=10, min_samples_split=10,
+                                       n_estimators=150, random_state=42))])
+Best parameters: {'regressor__max_depth': 10, 'regressor__min_samples_split': 10, 'regressor__n_estimators': 150}
+Best score: 0.25824178458688557
+Mean Squared Error (MSE): 1247395335073861.5
+Root Mean Squared Error (RMSE): 35318484.32582946
+Mean Absolute Error (MAE): 15130193.34758104
+R^2 Score: 0.8322562936716931
+Cross-validated RMSE scores: [0.51568387 0.43440821 0.56068398 0.44339155 0.48212545]
+Mean RMSE: 0.48725861226601824
+Standard deviation of RMSE: 0.046782718000935836
+----------------------------------------------------------------
+
+
+Best model: Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('num', StandardScaler(),
+                                                  ['mpaa', 'budget', 'runtime',
+                                                   'screens', 'opening_week',
+                                                   'critic_vote', 'Factor1',
+                                                   'Factor2'])])),
+                ('regressor',
+                 GradientBoostingRegressor(n_estimators=150, random_state=42))])
+Best parameters: {'regressor__learning_rate': 0.1, 'regressor__max_depth': 3, 'regressor__n_estimators': 150}
+Best score: 0.2522202025443637
+Mean Squared Error (MSE): 1397783428845012.2
+Root Mean Squared Error (RMSE): 37386941.95631694
+Mean Absolute Error (MAE): 15703662.451883962
+R^2 Score: 0.8120328284016967
+Cross-validated RMSE scores: [0.51433797 0.48252903 0.54930214 0.46920143 0.47166233]
+Mean RMSE: 0.49740657948909517
+Standard deviation of RMSE: 0.030526905783566028
+----------------------------------------------------------------
+
+
+Best model: Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('num', StandardScaler(),
+                                                  ['mpaa', 'budget', 'runtime',
+                                                   'screens', 'opening_week',
+                                                   'critic_vote', 'Factor1',
+                                                   'Factor2'])])),
+                ('regressor',
+                 RandomForestRegressor(max_depth=10, min_samples_split=10,
+                                       n_estimators=150, random_state=42))])
+Best parameters: {'regressor__max_depth': 10, 'regressor__min_samples_split': 10, 'regressor__n_estimators': 150}
+Best score: 0.25824178458688557
+Mean Squared Error (MSE): 1247395335073861.5
+Root Mean Squared Error (RMSE): 35318484.32582946
+Mean Absolute Error (MAE): 15130193.34758104
+R^2 Score: 0.8322562936716931
+Cross-validated RMSE scores: [0.51568387 0.43440821 0.56068398 0.44339155 0.48212545]
+Mean RMSE: 0.48725861226601824
+Standard deviation of RMSE: 0.046782718000935836
+----------------------------------------------------------------
+
+
+Best model: Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('num', StandardScaler(),
+                                                  ['mpaa', 'budget', 'runtime',
+                                                   'screens', 'opening_week',
+                                                   'critic_vote', 'Factor1',
+                                                   'Factor2'])])),
+                ('regressor',
+                 GradientBoostingRegressor(n_estimators=150, random_state=42))])
+Best parameters: {'regressor__learning_rate': 0.1, 'regressor__max_depth': 3, 'regressor__n_estimators': 150}
+Best score: 0.2522202025443637
+Mean Squared Error (MSE): 1397783428845012.2
+Root Mean Squared Error (RMSE): 37386941.95631694
+Mean Absolute Error (MAE): 15703662.451883962
+R^2 Score: 0.8120328284016967
+Cross-validated RMSE scores: [0.51433797 0.48252903 0.54930214 0.46920143 0.47166233]
+Mean RMSE: 0.49740657948909517
+Standard deviation of RMSE: 0.030526905783566028
+----------------------------------------------------------------
+
+
+Best model: Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('num', StandardScaler(),
+                                                  ['mpaa', 'budget', 'runtime',
+                                                   'screens', 'opening_week',
+                                                   'critic_vote', 'Factor1',
+                                                   'Factor2'])])),
+                ('regressor',
+                 RandomForestRegressor(max_depth=10, min_samples_split=10,
+                                       n_estimators=150, random_state=42))])
+Best parameters: {'regressor__max_depth': 10, 'regressor__min_samples_split': 10, 'regressor__n_estimators': 150}
+Best score: 0.25824178458688557
+Mean Squared Error (MSE): 1247395335073861.5
+Root Mean Squared Error (RMSE): 35318484.32582946
+Mean Absolute Error (MAE): 15130193.34758104
+R^2 Score: 0.8322562936716931
+Cross-validated RMSE scores: [0.51568387 0.43440821 0.56068398 0.44339155 0.48212545]
+Mean RMSE: 0.48725861226601824
+Standard deviation of RMSE: 0.046782718000935836
+----------------------------------------------------------------
+
+
+Best model: Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('num', StandardScaler(),
+                                                  ['mpaa', 'budget', 'runtime',
+                                                   'screens', 'opening_week',
+                                                   'critic_vote', 'Factor1',
+                                                   'Factor2'])])),
+                ('regressor',
+                 GradientBoostingRegressor(n_estimators=150, random_state=42))])
+Best parameters: {'regressor__learning_rate': 0.1, 'regressor__max_depth': 3, 'regressor__n_estimators': 150}
+Best score: 0.2522202025443637
+Mean Squared Error (MSE): 1397783428845012.2
+Root Mean Squared Error (RMSE): 37386941.95631694
+Mean Absolute Error (MAE): 15703662.451883962
+R^2 Score: 0.8120328284016967
+Cross-validated RMSE scores: [0.51433797 0.48252903 0.54930214 0.46920143 0.47166233]
+Mean RMSE: 0.49740657948909517
+Standard deviation of RMSE: 0.030526905783566028
+----------------------------------------------------------------
+
+
+Best model: Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('num', StandardScaler(),
+                                                  ['mpaa', 'budget', 'runtime',
+                                                   'screens', 'opening_week',
+                                                   'critic_vote', 'Factor1',
+                                                   'Factor2'])])),
+                ('regressor',
+                 RandomForestRegressor(max_depth=10, min_samples_split=10,
+                                       n_estimators=150, random_state=42))])
+Best parameters: {'regressor__max_depth': 10, 'regressor__min_samples_split': 10, 'regressor__n_estimators': 150}
+Best score: 0.25824178458688557
+Mean Squared Error (MSE): 1247395335073861.5
+Root Mean Squared Error (RMSE): 35318484.32582946
+Mean Absolute Error (MAE): 15130193.34758104
+R^2 Score: 0.8322562936716931
+Cross-validated RMSE scores: [0.51568387 0.43440821 0.56068398 0.44339155 0.48212545]
+Mean RMSE: 0.48725861226601824
+Standard deviation of RMSE: 0.046782718000935836
+----------------------------------------------------------------
+
+
+Best model: Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('num', StandardScaler(),
+                                                  ['mpaa', 'budget', 'runtime',
+                                                   'screens', 'opening_week',
+                                                   'critic_vote', 'Factor1',
+                                                   'Factor2'])])),
+                ('regressor',
+                 GradientBoostingRegressor(n_estimators=150, random_state=42))])
+Best parameters: {'regressor__learning_rate': 0.1, 'regressor__max_depth': 3, 'regressor__n_estimators': 150}
+Best score: 0.2522202025443637
+Mean Squared Error (MSE): 1397783428845012.2
+Root Mean Squared Error (RMSE): 37386941.95631694
+Mean Absolute Error (MAE): 15703662.451883962
+R^2 Score: 0.8120328284016967
+Cross-validated RMSE scores: [0.51433797 0.48252903 0.54930214 0.46920143 0.47166233]
+Mean RMSE: 0.49740657948909517
+Standard deviation of RMSE: 0.030526905783566028
+----------------------------------------------------------------
+
+
+Best model: Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('num', StandardScaler(),
+                                                  ['mpaa', 'budget', 'runtime',
+                                                   'screens', 'opening_week',
+                                                   'critic_vote', 'Factor1',
+                                                   'Factor2'])])),
+                ('regressor',
+                 RandomForestRegressor(max_depth=10, min_samples_split=10,
+                                       n_estimators=150, random_state=42))])
+Best parameters: {'regressor__max_depth': 10, 'regressor__min_samples_split': 10, 'regressor__n_estimators': 150}
+Best score: 0.25824178458688557
+Mean Squared Error (MSE): 1247395335073861.5
+Root Mean Squared Error (RMSE): 35318484.32582946
+Mean Absolute Error (MAE): 15130193.34758104
+R^2 Score: 0.8322562936716931
+Cross-validated RMSE scores: [0.51568387 0.43440821 0.56068398 0.44339155 0.48212545]
+Mean RMSE: 0.48725861226601824
+Standard deviation of RMSE: 0.046782718000935836
+----------------------------------------------------------------
+
+
+Best model: Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('num', StandardScaler(),
+                                                  ['mpaa', 'budget', 'runtime',
+                                                   'screens', 'opening_week',
+                                                   'critic_vote', 'Factor1',
+                                                   'Factor2'])])),
+                ('regressor',
+                 GradientBoostingRegressor(n_estimators=150, random_state=42))])
+Best parameters: {'regressor__learning_rate': 0.1, 'regressor__max_depth': 3, 'regressor__n_estimators': 150}
+Best score: 0.2522202025443637
+Mean Squared Error (MSE): 1397783428845012.2
+Root Mean Squared Error (RMSE): 37386941.95631694
+Mean Absolute Error (MAE): 15703662.451883962
+R^2 Score: 0.8120328284016967
+Cross-validated RMSE scores: [0.51433797 0.48252903 0.54930214 0.46920143 0.47166233]
+Mean RMSE: 0.49740657948909517
+Standard deviation of RMSE: 0.030526905783566028
+----------------------------------------------------------------
+
+
+Best model: Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('num', StandardScaler(),
+                                                  ['mpaa', 'budget', 'runtime',
+                                                   'screens', 'opening_week',
+                                                   'critic_vote', 'Factor1',
+                                                   'Factor2'])])),
+                ('regressor',
+                 RandomForestRegressor(max_depth=10, random_state=42))])
+Best parameters: {'regressor__max_depth': 10, 'regressor__min_samples_split': 2, 'regressor__n_estimators': 100}
+Best score: 0.230990014780182
+Mean Squared Error (MSE): 1528678784683902.2
+Root Mean Squared Error (RMSE): 39098322.01877598
+Mean Absolute Error (MAE): 14896388.958455594
+R^2 Score: 0.7861669067990805
+Cross-validated RMSE scores: [0.51105026 0.43898813 0.55595308 0.45481795 0.47531344]
+Mean RMSE: 0.487224573605274
+Standard deviation of RMSE: 0.04197639769620318
+----------------------------------------------------------------
+
+
+Best model: Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('num', StandardScaler(),
+                                                  ['mpaa', 'budget', 'runtime',
+                                                   'screens', 'opening_week',
+                                                   'critic_vote', 'Factor1',
+                                                   'Factor2'])])),
+                ('regressor',
+                 GradientBoostingRegressor(max_depth=5, random_state=42))])
+Best parameters: {'regressor__learning_rate': 0.1, 'regressor__max_depth': 5, 'regressor__n_estimators': 100}
+Best score: 0.22542638953880578
+Mean Squared Error (MSE): 1495449237907322.8
+Root Mean Squared Error (RMSE): 38671038.74874999
+Mean Absolute Error (MAE): 14856517.969383541
+R^2 Score: 0.7908150885126575
+Cross-validated RMSE scores: [0.50578313 0.45371573 0.55288606 0.45926978 0.46422124]
+Mean RMSE: 0.4871751880628157
+Standard deviation of RMSE: 0.03765449440283945
+----------------------------------------------------------------
+
+
