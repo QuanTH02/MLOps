@@ -1,9 +1,7 @@
 from flask import Flask, render_template, request, jsonify, send_from_directory
 from predict_with_efa import *
 
-import sys
-sys.path.append(r'C:\Code\Project_MLops\src')
-from constant.constant import MODEL_EFR
+from constant import MODEL_EFR
 
 
 app = Flask(__name__, template_folder="templates")

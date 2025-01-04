@@ -1,6 +1,4 @@
 from feature_selection import *
-import sys
-sys.path.append(r'C:\Code\Project_MLops\src')
 
 df_old = pd.read_csv('../../data/processed/final_merged.csv')
 df_new = pd.read_csv('../../data/raw/merge_data/movies_data.csv')

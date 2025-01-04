@@ -5,9 +5,7 @@ import os
 import warnings
 warnings.filterwarnings("ignore", message="X does not have valid feature names")
 
-import sys
-sys.path.append(r'C:\Code\Project_MLops\src')
-from constant.constant import MODEL_EFR, MPAA_LABEL_ENCODER, COUNTRY_LABEL_ENCODER, SCALER, FACTOR_ANALYZER, UNIQUE_GENRES, SELECTED_FEATURES, MODEL_GB_WITHOUT_OPENING_WEEK, MODEL_RF_WITHOUT_OPENING_WEEK, MODEL_RF, MODEL_GB, SELECTED_FEATURES_WITHOUT_OPENING_WEEK
+from constant import MODEL_EFR, MPAA_LABEL_ENCODER, COUNTRY_LABEL_ENCODER, SCALER, FACTOR_ANALYZER, UNIQUE_GENRES, SELECTED_FEATURES, MODEL_GB_WITHOUT_OPENING_WEEK, MODEL_RF_WITHOUT_OPENING_WEEK, MODEL_RF, MODEL_GB, SELECTED_FEATURES_WITHOUT_OPENING_WEEK
 
 def predict_with_feature_selection(model_file_name, month, year, mpaa, budget, runtime, screens, opening_week, user_vote, ratings, critic_vote, meta_score, sequel, genres, country):
     movie = {}
