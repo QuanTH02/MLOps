@@ -1,6 +1,5 @@
 ### Yêu cầu:
 - Python
-- Power Shell: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 ### Cài đặt thư viện, môi trường:
 - py -m venv venv
