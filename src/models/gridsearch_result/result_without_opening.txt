@@ -278,3 +278,81 @@ Standard deviation of RMSE: 0.02834170730941625
 ----------------------------------------------------------------
 
 
+Best model: Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('num', StandardScaler(),
+                                                  ['mpaa', 'budget', 'runtime',
+                                                   'screens', 'opening_week',
+                                                   'critic_vote', 'Factor1',
+                                                   'Factor2'])])),
+                ('regressor',
+                 RandomForestRegressor(max_depth=10, random_state=42))])
+Best parameters: {'regressor__max_depth': 10, 'regressor__min_samples_split': 2, 'regressor__n_estimators': 100}
+Best score: 0.230990014780182
+Mean Squared Error (MSE): 1528678784683902.2
+Root Mean Squared Error (RMSE): 39098322.01877598
+Mean Absolute Error (MAE): 14896388.958455594
+R^2 Score: 0.7861669067990805
+Cross-validated RMSE scores: [0.51105026 0.43898813 0.55595308 0.45481795 0.47531344]
+Mean RMSE: 0.487224573605274
+Standard deviation of RMSE: 0.04197639769620318
+----------------------------------------------------------------
+
+
+Best model: Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('num', StandardScaler(),
+                                                  ['mpaa', 'budget', 'runtime',
+                                                   'screens', 'opening_week',
+                                                   'critic_vote', 'Factor1',
+                                                   'Factor2'])])),
+                ('regressor',
+                 GradientBoostingRegressor(max_depth=5, random_state=42))])
+Best parameters: {'regressor__learning_rate': 0.1, 'regressor__max_depth': 5, 'regressor__n_estimators': 100}
+Best score: 0.22542638953880578
+Mean Squared Error (MSE): 1495449237907322.8
+Root Mean Squared Error (RMSE): 38671038.74874999
+Mean Absolute Error (MAE): 14856517.969383541
+R^2 Score: 0.7908150885126575
+Cross-validated RMSE scores: [0.50578313 0.45371573 0.55288606 0.45926978 0.46422124]
+Mean RMSE: 0.4871751880628157
+Standard deviation of RMSE: 0.03765449440283945
+----------------------------------------------------------------
+
+
+Best model: Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('num', StandardScaler(),
+                                                  ['mpaa', 'budget', 'runtime',
+                                                   'screens', 'critic_vote',
+                                                   'Factor1', 'Factor2'])])),
+                ('regressor',
+                 RandomForestRegressor(max_depth=10, min_samples_split=5,
+                                       random_state=42))])
+Best parameters: {'regressor__max_depth': 10, 'regressor__min_samples_split': 5, 'regressor__n_estimators': 100}
+Best score: 0.46575381641858027
+Mean Squared Error (MSE): 3140621851223019.5
+Root Mean Squared Error (RMSE): 56041251.33527105
+Mean Absolute Error (MAE): 26211828.10759283
+R^2 Score: 0.5606867238886408
+Cross-validated RMSE scores: [0.69674892 0.65967019 0.73539832 0.6593099  0.69697475]
+Mean RMSE: 0.6896204173163816
+Standard deviation of RMSE: 0.02834170730941625
+----------------------------------------------------------------
+
+
+Best model: Pipeline(steps=[('preprocessor',
+                 ColumnTransformer(transformers=[('num', StandardScaler(),
+                                                  ['mpaa', 'budget', 'runtime',
+                                                   'screens', 'critic_vote',
+                                                   'Factor1', 'Factor2'])])),
+                ('regressor', GradientBoostingRegressor(random_state=42))])
+Best parameters: {'regressor__learning_rate': 0.1, 'regressor__max_depth': 3, 'regressor__n_estimators': 100}
+Best score: 0.4581360185326628
+Mean Squared Error (MSE): 2953700570458736.5
+Root Mean Squared Error (RMSE): 54347958.291537836
+Mean Absolute Error (MAE): 25946769.133485153
+R^2 Score: 0.5868334566433373
+Cross-validated RMSE scores: [0.70090384 0.66339484 0.73170568 0.65531662 0.67961343]
+Mean RMSE: 0.6861868817195289
+Standard deviation of RMSE: 0.027583367540495878
+----------------------------------------------------------------
+
+
