@@ -1,10 +1,11 @@
 import requests
 import pandas as pd
+import os
 
 def crawl_budget(tt_id):
     url = 'https://api.themoviedb.org/3/find/' + tt_id
     headers_detail = {
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YmJiNjQ1NTZiMjg0ZDA1Njc2OGVjMzdmZmU0ZWM3NyIsInN1YiI6IjY2MDU3MGE3OTU2NjU4MDE0ODdkZTljOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.mXbYtQYdYFHQSQxEUTiHIvUsRhtq7R-zXZH2oPqu38o',
+        'Authorization': 'Bearer ' + os.getenv('tmdb_key'),
         'accept': 'application/json'
     }
     params_detail = {
@@ -17,7 +18,7 @@ def crawl_budget(tt_id):
     if len(detail['movie_results']) > 0:
         url_budget = 'https://api.themoviedb.org/3/movie/' + str(detail['movie_results'][0]['id'])
         headers_budget = {
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YmJiNjQ1NTZiMjg0ZDA1Njc2OGVjMzdmZmU0ZWM3NyIsInN1YiI6IjY2MDU3MGE3OTU2NjU4MDE0ODdkZTljOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.mXbYtQYdYFHQSQxEUTiHIvUsRhtq7R-zXZH2oPqu38o',
+            'Authorization': 'Bearer ' + os.getenv('tmdb_key'),
             'accept': 'application/json'
         }
         params = {
@@ -27,6 +28,8 @@ def crawl_budget(tt_id):
         response = requests.get(url_budget, headers=headers_budget, params=params)
         data = response.json()
 
+        print('budget: ', data['budget'])
+
         if data['budget']:
             return data['budget']
         else:
@@ -34,16 +37,16 @@ def crawl_budget(tt_id):
     else:
         return None
 
-def main_tmdb():
+def main_tmdb(path_file):
     print('====================================================================================')
     print('Crawl TMDb...')
-    path_file = './merge_data/movies_data.csv'
     df = pd.read_csv(path_file)
     url_title_list = df["tt_id"].tolist()
     budget_list = df["budget"].tolist()
     
     for idx, tt_id in enumerate(url_title_list):
         if pd.isnull(budget_list[idx]):
+            print(tt_id)
             budget = crawl_budget(tt_id)
             if budget is not None:
                 df.at[idx, 'budget'] = budget
