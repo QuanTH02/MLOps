@@ -16,9 +16,8 @@ from sklearn.model_selection import (
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 from factor_analyzer import FactorAnalyzer
 import pickle
-import sys
-sys.path.append(r'C:\Code\Project_MLops\src')
-from constant.constant import DATA_FILE_NAME, PREPROCESS_DATA_NAME, PREPROCESS_DATA_NAME_OPENING, EFA, MODEL_EFR, MPAA_LABEL_ENCODER, COUNTRY_LABEL_ENCODER, SCALER, FACTOR_ANALYZER, UNIQUE_GENRES, SELECTED_FEATURES, MODEL_GB_WITHOUT_OPENING_WEEK, MODEL_RF_WITHOUT_OPENING_WEEK, MODEL_RF, MODEL_GB, SELECTED_FEATURES_WITHOUT_OPENING_WEEK
+
+from constant import DATA_FILE_NAME, PREPROCESS_DATA_NAME, PREPROCESS_DATA_NAME_OPENING, EFA, MODEL_EFR, MPAA_LABEL_ENCODER, COUNTRY_LABEL_ENCODER, SCALER, FACTOR_ANALYZER, UNIQUE_GENRES, SELECTED_FEATURES, MODEL_GB_WITHOUT_OPENING_WEEK, MODEL_RF_WITHOUT_OPENING_WEEK, MODEL_RF, MODEL_GB, SELECTED_FEATURES_WITHOUT_OPENING_WEEK
 
 def train(df):
     unique_genres = set(genre for sublist in df["genres"].str.split() for genre in sublist)
