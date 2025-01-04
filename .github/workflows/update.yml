@@ -28,7 +28,10 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Run update
-        run: python ./data/crawl/main/main_update.py
+        run: |
+          cd ./data/crawl/main
+          python main_update.py
+          cd ../../..
 
       - name: Upload output
         uses: actions/upload-artifact@v4
@@ -74,7 +77,9 @@ jobs:
 
       - name: Update model
         run: |
+          cd ./src/models
           python update_model.py
+          cd ../..
           cp ./data/processed/final_merged.csv ./src/app/static/
       
       - name: Commit and push the .pkl file
