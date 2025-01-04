@@ -4,9 +4,9 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
-from xgboost import XGBRegressor
-from lightgbm import LGBMRegressor
-from catboost import CatBoostRegressor
+# from xgboost import XGBRegressor
+# from lightgbm import LGBMRegressor
+# from catboost import CatBoostRegressor
 from scipy.stats import pearsonr
 from sklearn.model_selection import (
     train_test_split,
@@ -16,6 +16,9 @@ from sklearn.model_selection import (
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 from factor_analyzer import FactorAnalyzer
 import pickle
+import sys
+sys.path.append(r'C:\Code\Project_MLops\src')
+from constant.constant import DATA_FILE_NAME, PREPROCESS_DATA_NAME, PREPROCESS_DATA_NAME_OPENING, EFA, MODEL_EFR, MPAA_LABEL_ENCODER, COUNTRY_LABEL_ENCODER, SCALER, FACTOR_ANALYZER, UNIQUE_GENRES, SELECTED_FEATURES, MODEL_GB_WITHOUT_OPENING_WEEK, MODEL_RF_WITHOUT_OPENING_WEEK, MODEL_RF, MODEL_GB, SELECTED_FEATURES_WITHOUT_OPENING_WEEK
 
 def train(df):
     unique_genres = set(genre for sublist in df["genres"].str.split() for genre in sublist)
@@ -42,6 +45,7 @@ def train(df):
     df = df[selected_columns]
 
     genre_columns = list(unique_genres)
+    
     genre_data = df[genre_columns]
     scaler = StandardScaler()
     genre_data_scaled = scaler.fit_transform(genre_data)
@@ -68,7 +72,7 @@ def train(df):
     country_label_encoder = LabelEncoder()
     df["mpaa"] = mpaa_label_encoder.fit_transform(df["mpaa"])
     df["country"] = country_label_encoder.fit_transform(df["country"])
-    df.to_csv("merge_data/preprocess_data.csv", index=False)
+    df.to_csv(PREPROCESS_DATA_NAME, index=False)
     X = df.drop("domestic_box_office", axis=1)
     y = df["domestic_box_office"]
     y_log = np.log(y)
@@ -148,16 +152,16 @@ def train(df):
     models = [
         (RandomForestRegressor(random_state=42), param_grid_rf),
         (GradientBoostingRegressor(random_state=42), param_grid_gb),
-        (XGBRegressor(random_state=42), param_grid_xgb),
-        (LGBMRegressor(random_state=42), param_grid_lgbm),
-        (CatBoostRegressor(random_state=42, verbose=0), param_grid_cb),
+        # (XGBRegressor(random_state=42), param_grid_xgb),
+        # (LGBMRegressor(random_state=42), param_grid_lgbm),
+        # (CatBoostRegressor(random_state=42, verbose=0), param_grid_cb),
     ]
 
     best_score = float("inf")
     best_model = None
     best_params = None
 
-    list_file_name = ["model_efa/model_rf.pkl", "model_efa/model_gb.pkl", "model_efa/model_xgb.pkl", "model_efa/model_lgbm.pkl", "model_efa/model_cb.pkl"]
+    list_file_name = [EFA + MODEL_RF, EFA + MODEL_GB]
 
     index_file_name = 0
     for model, param_grid in models:
@@ -205,17 +209,17 @@ def train(df):
             print(f"Standard deviation of RMSE: {rmse_scores.std()}", file=f)
             print("----------------------------------------------------------------\n\n",file=f)
 
-    with open("model_efa/mpaa_label_encoder.pkl", "wb") as f:
+    with open(EFA + MPAA_LABEL_ENCODER, "wb") as f:
         pickle.dump(mpaa_label_encoder, f)
-    with open("model_efa/country_label_encoder.pkl", "wb") as f:
+    with open(EFA + COUNTRY_LABEL_ENCODER, "wb") as f:
         pickle.dump(country_label_encoder, f)
-    with open("model_efa/scaler.pkl", "wb") as f:
+    with open(EFA + SCALER, "wb") as f:
         pickle.dump(scaler, f)
-    with open("model_efa/factor_analyzer.pkl", "wb") as f:
+    with open(EFA + FACTOR_ANALYZER, "wb") as f:
         pickle.dump(fa, f)
-    with open("model_efa/unique_genres.pkl", "wb") as f:
+    with open(EFA + UNIQUE_GENRES, "wb") as f:
         pickle.dump(unique_genres, f)
-    with open("model_efa/selected_features.pkl", "wb") as f:
+    with open(EFA + SELECTED_FEATURES, "wb") as f:
         pickle.dump(selected_features, f)
 
 def train_without_opening_week(df):
@@ -266,7 +270,7 @@ def train_without_opening_week(df):
     country_label_encoder = LabelEncoder()
     df["mpaa"] = mpaa_label_encoder.fit_transform(df["mpaa"])
     df["country"] = country_label_encoder.fit_transform(df["country"])
-    df.to_csv("merge_data/preprocess_data_without_opening_week.csv", index=False)
+    df.to_csv(PREPROCESS_DATA_NAME_OPENING, index=False)
     X = df.drop("domestic_box_office", axis=1)
     y = df["domestic_box_office"]
     y_log = np.log(y)
@@ -346,16 +350,16 @@ def train_without_opening_week(df):
     models = [
         (RandomForestRegressor(random_state=42), param_grid_rf),
         (GradientBoostingRegressor(random_state=42), param_grid_gb),
-        (XGBRegressor(random_state=42), param_grid_xgb),
-        (LGBMRegressor(random_state=42), param_grid_lgbm),
-        (CatBoostRegressor(random_state=42, verbose=0), param_grid_cb),
+        # (XGBRegressor(random_state=42), param_grid_xgb),
+        # (LGBMRegressor(random_state=42), param_grid_lgbm),
+        # (CatBoostRegressor(random_state=42, verbose=0), param_grid_cb),
     ]
 
     best_score = float("inf")
     best_model = None
     best_params = None
 
-    list_file_name = ["model_efa/model_rf_without_opening_week.pkl", "model_efa/model_gb_without_opening_week.pkl", "model_efa/model_xgb_without_opening_week.pkl", "model_efa/model_lgbm_without_opening_week.pkl", "model_efa/model_cb_without_opening_week.pkl"]
+    list_file_name = [EFA + MODEL_RF_WITHOUT_OPENING_WEEK, EFA + MODEL_GB_WITHOUT_OPENING_WEEK]
 
     index_file_name = 0
     for model, param_grid in models:
@@ -406,21 +410,21 @@ def train_without_opening_week(df):
                 "----------------------------------------------------------------\n\n",file=f
             )
 
-    with open("model_efa/mpaa_label_encoder.pkl", "wb") as f:
+    with open(EFA + MPAA_LABEL_ENCODER, "wb") as f:
         pickle.dump(mpaa_label_encoder, f)
-    with open("model_efa/country_label_encoder.pkl", "wb") as f:
+    with open(EFA + COUNTRY_LABEL_ENCODER, "wb") as f:
         pickle.dump(country_label_encoder, f)
-    with open("model_efa/scaler.pkl", "wb") as f:
+    with open(EFA + SCALER, "wb") as f:
         pickle.dump(scaler, f)
-    with open("model_efa/factor_analyzer.pkl", "wb") as f:
+    with open(EFA + FACTOR_ANALYZER, "wb") as f:
         pickle.dump(fa, f)
-    with open("model_efa/unique_genres.pkl", "wb") as f:
+    with open(EFA + UNIQUE_GENRES, "wb") as f:
         pickle.dump(unique_genres, f)
-    with open("model_efa/selected_features_without_opening_week.pkl", "wb") as f:
+    with open(EFA + SELECTED_FEATURES_WITHOUT_OPENING_WEEK, "wb") as f:
         pickle.dump(selected_features, f)
 
 if __name__ == "__main__":
-    df = pd.read_csv("merge_data/final_merged.csv")
+    df = pd.read_csv(DATA_FILE_NAME)
     # with open("gridsearch_result/result_with_opening.txt","w") as f:
     #     pass
     # with open("gridsearch_result/result_without_opening.txt","w") as f:
